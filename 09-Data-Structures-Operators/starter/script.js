@@ -85,15 +85,18 @@ console.log(typeof(rows));
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-const rows = flights.split('+');
-console.log(rows);;
 
-for (const row of rows) {
-  console.log((row));
-   const words = row.split(';');
-   for (const [i, word] of words.entries())
-   {
-    console.log(i, word)
-   }
+  const slicer = str => str.slice('', 3).toUpperCase();
+  
+for (const row of flights.split('+')) {
+  const [type, from, to, time] = row.split(';');
 
+  let first = type.includes('Delayed') ? '🔴 ' : '';
+  let first_2 = type.replaceAll('_', ' ');
+  let second = slicer(from);
+  let third = slicer(to);
+  let fourth = `(${time.replace(':', 'h')})`
+
+  const final = `${first} ${first_2} from ${second} to ${third} ${fourth}`.padStart(36)
+  console.log(final.padStart(36))
   }
