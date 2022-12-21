@@ -250,7 +250,6 @@ DATA CAR 1: 'Ford' going at 120 km/h
 GOOD LUCK 😀
 */
 
-/*
 class CarCl {
   constructor(make, speed) {
     this.make = make;
@@ -283,7 +282,7 @@ ford.accelerate();
 ford.brake();
 ford.speedUS = 50;
 console.log(ford);
-
+/*
 
 ///////////////////////////////////////
 // Inheritance Between "Classes": Constructor Functions
